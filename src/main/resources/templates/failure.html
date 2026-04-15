@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Payment failed or was cancelled"/>
+    <title>Payment Failed | RazorPay Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="centered-page">
+
+<div class="status-card glass failure-card">
+
+    <!-- Animated X mark -->
+    <div class="status-icon failure-icon">
+        <svg viewBox="0 0 52 52" class="xmark-svg">
+            <circle class="xmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <line class="xmark-line" x1="16" y1="16" x2="36" y2="36"/>
+            <line class="xmark-line" x1="36" y1="16" x2="16" y2="36"/>
+        </svg>
+    </div>
+
+    <h1 class="status-title failure-text">Payment Failed</h1>
+    <p class="status-subtitle" th:text="${reason}">
+        The payment could not be completed. No amount was charged.
+    </p>
+
+    <div class="help-box">
+        <p>💡 <strong>What to try next:</strong></p>
+        <ul>
+            <li>Check your card/UPI details and try again</li>
+            <li>Ensure you have sufficient balance</li>
+            <li>Try a different payment method</li>
+            <li>Contact your bank if the issue persists</li>
+        </ul>
+    </div>
+
+    <div class="status-actions">
+        <a href="/payment/checkout" class="btn btn-primary">Try Again</a>
+        <a href="/" class="btn btn-ghost">Go Home</a>
+    </div>
+</div>
+
+</body>
+</html>

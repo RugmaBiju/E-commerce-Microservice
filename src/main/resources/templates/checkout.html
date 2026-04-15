@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Secure checkout powered by Razorpay Payment Gateway"/>
+    <title>Secure Checkout | RazorPay Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<!-- ── NAVBAR ───────────────────────────────────────── -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-logo">
+            <span class="logo-icon">⚡</span>
+            <span>RazorPay<strong>Demo</strong></span>
+        </div>
+        <div class="nav-badge">🔒 Secured by Razorpay</div>
+    </div>
+</nav>
+
+<!-- ── MAIN ─────────────────────────────────────────── -->
+<main class="main-layout">
+
+    <!-- Left: Product Card -->
+    <section class="product-card glass">
+        <div class="product-badge">✨ Featured</div>
+        <div class="product-image-wrap">
+            <div class="product-img-placeholder">
+                <span class="product-emoji">🚀</span>
+            </div>
+        </div>
+        <h1 class="product-title">Pro Developer Plan</h1>
+        <p class="product-desc">
+            Unlock unlimited API calls, priority support, advanced analytics,
+            and full access to our premium toolchain.
+        </p>
+        <ul class="features-list">
+            <li><span class="check">✔</span> Unlimited API Requests</li>
+            <li><span class="check">✔</span> 24/7 Priority Support</li>
+            <li><span class="check">✔</span> Advanced Analytics Dashboard</li>
+            <li><span class="check">✔</span> Custom Integrations</li>
+            <li><span class="check">✔</span> 1-year License</li>
+        </ul>
+        <div class="price-block">
+            <span class="price">₹4,999</span>
+            <span class="price-note">/ year &nbsp;·&nbsp; inc. GST</span>
+        </div>
+        <div class="trust-badges">
+            <span>🔐 256-bit SSL</span>
+            <span>💳 All cards accepted</span>
+            <span>🏦 Net Banking / UPI</span>
+        </div>
+    </section>
+
+    <!-- Right: Checkout Form -->
+    <section class="checkout-card glass">
+        <h2 class="form-title">Complete Your Order</h2>
+        <p class="form-subtitle">Fill in the details below to proceed securely</p>
+
+        <form id="checkoutForm" novalidate>
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input id="name" type="text" placeholder="Maitri Sharma"
+                       autocomplete="name" required/>
+                <span class="form-error" id="nameErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" placeholder="maitri@example.com"
+                       autocomplete="email" required/>
+                <span class="form-error" id="emailErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input id="phone" type="tel" placeholder="+91 98765 43210"
+                       autocomplete="tel" required/>
+                <span class="form-error" id="phoneErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount (₹)</label>
+                <div class="amount-wrap">
+                    <span class="currency-symbol">₹</span>
+                    <input id="amount" type="number" value="4999" min="1"
+                           placeholder="4999" required/>
+                </div>
+                <span class="form-error" id="amountErr"></span>
+            </div>
+
+            <button id="payBtn" type="submit" class="pay-btn">
+                <span id="payBtnText">Pay Securely with Razorpay</span>
+                <span id="payBtnSpinner" class="spinner hidden"></span>
+            </button>
+
+            <p class="secure-note">
+                🔒 Your payment is encrypted and processed by Razorpay.
+                We never store your card details.
+            </p>
+        </form>
+    </section>
+
+</main>
+
+<!-- ── RAZORPAY CHECKOUT SCRIPT ──────────────────────── -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script th:src="@{/js/checkout.js}"></script>
+</body>
+</html>
